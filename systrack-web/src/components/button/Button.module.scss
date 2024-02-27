@@ -1,0 +1,30 @@
+@use "../../_base";
+
+button {
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: ease-out 0.1s;
+  font-weight: 400;
+  &.Primary {
+    color: base.$secondary-text;
+    background-color: base.$primary-color;
+
+    &:hover {
+      background-color: base.$primary-color-hover;
+    }
+  }
+
+  &.Secondary {
+    background-color: transparent;
+    border: 2px solid base.$primary-color;
+    color: base.$primary-text;
+
+    &:hover {
+      background-color: base.$primary-color;
+      color: base.$secondary-text;
+    }
+  }
+}

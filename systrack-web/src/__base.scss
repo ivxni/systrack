@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+$primary-bg: rgb(255, 255, 255);
+$secondary-bg: rgb(0, 0, 0);
+
+$primary-color: #1786F9;
+$secondary-color: #000000;
+
+$primary-color-hover: #56a7fd;
+
+$primary-text: rgb(0, 0, 0);
+$secondary-text: rgb(255, 255, 255);
+
+$black: rgb(15, 15, 15);
+$dark-grey: rgb(25, 25, 25);
+$grey: rgb(100, 100, 100);
+$lightgrey: rgb(220, 220, 220);
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+
+  font-family: Quicksand, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  text-decoration: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  list-style: none;
+  text-decoration: none !important;
+  background-color: $primary-bg;
+
+  display: flex;
+  flex-direction: column;
+
+  color: $primary-text;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:root {
+  --gradient: linear-gradient(45deg, #0170dd, #389cff, #0170dd);
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body {
+    display: flex;
+  }
+}

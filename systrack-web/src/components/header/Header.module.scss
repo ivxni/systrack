@@ -1,0 +1,44 @@
+@use "../../_base";
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: base.$secondary-bg;
+  color: base.$secondary-text;
+  z-index: 999;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-weight: 300;
+      margin-left: 0.5rem;
+      color: base.$secondary-text;
+    }
+
+    img {
+      height: 5vh;
+    }
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    li {
+      cursor: pointer;
+      margin: 1rem;
+      color: base.$secondary-text;
+    }
+
+    Button {
+      margin-left: 1rem;
+    }
+  }
+}

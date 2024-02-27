@@ -1,0 +1,41 @@
+@use "../../_base";
+
+.Form {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+
+  .Container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 30rem;
+    height: 40rem;
+    background-color: base.$primary-bg;
+    border: 2px solid base.$lightgrey;
+    border-radius: 10px;
+    margin: auto;
+    padding: 1.5rem;
+
+    .fa {
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      align-self: flex-end;
+      color: base.$primary-text;
+      transition: ease-out 0.2s;
+
+      &:hover {
+        color: base.$primary-color;
+      }
+    }
+  }
+}

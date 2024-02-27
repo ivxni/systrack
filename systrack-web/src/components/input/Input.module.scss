@@ -1,0 +1,13 @@
+@use "../../_base";
+
+input {
+  outline: none;
+  background-color: base.$primary-bg;
+  border: 2px solid base.$lightgrey;
+  padding: 0.5rem;
+  border-radius: 8px;
+
+  &:focus {
+    border: 2px solid base.$primary-color;
+  }
+}

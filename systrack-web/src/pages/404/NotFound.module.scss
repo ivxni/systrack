@@ -1,0 +1,19 @@
+@use "../../_base";
+
+.notfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+  margin: 16rem 0;
+
+  h1 {
+    font-size: 15vh;
+    margin: 1rem;
+  }
+
+  span {
+    font-size: 3vh;
+  }
+}

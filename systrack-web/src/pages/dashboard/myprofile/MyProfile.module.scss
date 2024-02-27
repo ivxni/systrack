@@ -1,0 +1,42 @@
+@use "../../../_base";
+
+.MyProfile {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 85vh;
+  margin: auto;
+  .section__container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    .info__container {
+      display: flex;
+      width: 70%;
+      padding: 2rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid base.$lightgrey;
+      border-radius: 10px;
+      padding: 1rem;
+      color: base.$grey;
+      margin: 1rem 0;
+
+      Button {
+        margin: 1rem 0;
+      }
+
+      span {
+        margin: 0.5rem 0;
+      }
+
+      h2 {
+        margin: 0.5rem;
+      }
+    }
+  }
+}

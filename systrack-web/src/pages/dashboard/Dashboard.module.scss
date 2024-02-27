@@ -1,0 +1,18 @@
+@use "../../_base";
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+
+  .nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 15rem;
+  padding: 2rem 0;
+  }
+}

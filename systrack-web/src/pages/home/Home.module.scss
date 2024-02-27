@@ -1,0 +1,9 @@
+@use "../../_base";
+
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 110vh;
+}
