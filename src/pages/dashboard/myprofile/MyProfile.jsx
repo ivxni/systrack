@@ -29,7 +29,7 @@ function MyProfile() {
 
       try {
         const response = await axios.get(
-          `https://localhost:7167/api/user/data/${userId}`,
+          `https://systrack-its.azurewebsites.net/api/user/data/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
