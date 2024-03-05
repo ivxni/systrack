@@ -21,7 +21,7 @@ function CreateComputer({ onClose }) {
     };
     try {
       const response = await axios.get(
-        `https://localhost:7167/api/user`,
+        `https://systrack-its.azurewebsites.net/api/user`,
         config
       );
       const usersArray = Array.isArray(response.data)
@@ -63,7 +63,7 @@ function CreateComputer({ onClose }) {
 
     try {
       const response = await axios.post(
-        `https://localhost:7167/api/user/computers`,
+        `https://systrack-its.azurewebsites.net/api/user/computers`,
         computerPayload,
         config
       );

@@ -41,7 +41,7 @@ function EditUser({ userData, onClose }) {
 
     try {
       await axios.put(
-        `https://localhost:7167/api/user/personal/${userId}`,
+        `https://systrack-its.azurewebsites.net/api/user/personal/${userId}`,
         {
           firstName: formData.firstName,
           lastName: formData.lastName,
@@ -51,7 +51,7 @@ function EditUser({ userData, onClose }) {
       );
 
       await axios.put(
-        `https://localhost:7167/api/user/address/${userId}`,
+        `https://systrack-its.azurewebsites.net/api/user/address/${userId}`,
         {
           country: formData.country,
           city: formData.city,

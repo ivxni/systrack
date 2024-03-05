@@ -18,7 +18,7 @@ function Users() {
         };
 
         const usersResponse = await axios.get(
-          "https://localhost:7167/api/user",
+          "https://systrack-its.azurewebsites.net/api/user",
           config
         );
 
@@ -29,7 +29,7 @@ function Users() {
             userData.map(async (user) => {
               try {
                 const personalDataResponse = await axios.get(
-                  `https://localhost:7167/api/user/data/${user.id}`,
+                  `https://systrack-its.azurewebsites.net/api/user/data/${user.id}`,
                   config
                 );
                 return { ...user, customer: personalDataResponse.data };

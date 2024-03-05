@@ -13,7 +13,7 @@ function MyOrders() {
         const userId = localStorage.getItem("userId");
 
         const response = await axios.get(
-          `https://localhost:7167/api/user/${userId}/orders`,
+          `https://systrack-its.azurewebsites.net/api/user/${userId}/orders`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

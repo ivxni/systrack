@@ -13,7 +13,7 @@ function MyComputers() {
         const userId = localStorage.getItem("userId");
 
         const response = await axios.get(
-          `https://localhost:7167/api/user/${userId}/computers`,
+          `https://systrack-its.azurewebsites.net/api/user/${userId}/computers`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

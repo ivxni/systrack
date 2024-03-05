@@ -24,7 +24,7 @@ function CreateOrder({ onClose }) {
     };
     try {
       const response = await axios.get(
-        `https://localhost:7167/api/user`,
+        `https://systrack-its.azurewebsites.net/api/user`,
         config
       );
       const usersArray = Array.isArray(response.data)
@@ -75,7 +75,7 @@ function CreateOrder({ onClose }) {
 
     try {
       const response = await axios.post(
-        `https://localhost:7167/api/user/orders`,
+        `https://systrack-its.azurewebsites.net/api/user/orders`,
         orderPayload,
         config
       );

@@ -44,7 +44,7 @@ function Address() {
       };
 
       await axios.post(
-        `https://localhost:7167/api/user/address`,
+        `https://systrack-its.azurewebsites.net/api/user/address`,
         addressData,
         config
       );
