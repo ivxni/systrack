@@ -2,9 +2,10 @@ import styles from "./User.module.scss";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import Form from "../../../../components/form/Form";
 
-library.add(faBars);
+library.add(faBars, faPenToSquare);
 
 function getRoleName(roleNumber) {
   const roleNames = {
@@ -20,6 +21,14 @@ function getRoleName(roleNumber) {
 function User({ userData }) {
   const [showDetails, setShowDetails] = useState(false);
 
+  const [showEditForm, setShowEditForm] = useState(false);
+  const [editData, setEditData] = useState({});
+
+  const toggleEditForm = () => {
+    setShowEditForm(!showEditForm);
+    setEditData(userData);
+  };
+
   const { customer } = userData;
   const toggleDetails = () => {
     setShowDetails(!showDetails);
@@ -31,7 +40,14 @@ function User({ userData }) {
     <div className={`${styles.User} ${showDetails ? styles.clicked : ""}`}>
       <span className={styles.title} onClick={toggleDetails}>
         {userData.email} | {roleName}
-        <FontAwesomeIcon className={styles.fa} icon="bars" />
+        <div className={styles.actions}>
+          <FontAwesomeIcon
+            onClick={toggleEditForm}
+            className={styles.fa}
+            icon="pen-to-square"
+          />
+          <FontAwesomeIcon className={styles.fa} icon="bars" />
+        </div>
       </span>
       <div
         className={`${styles.details__container} ${
@@ -55,6 +71,13 @@ function User({ userData }) {
           <span>Street Number: {customer?.streetNo}</span>
         </div>
       </div>
+      {showEditForm && (
+        <Form
+          label="Edit User"
+          onClose={() => setShowEditForm(false)}
+          userData={editData}
+        />
+      )}
     </div>
   );
 }

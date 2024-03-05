@@ -42,7 +42,7 @@ function Personal() {
       };
 
       await axios.post(
-        `https://systrack-its.azurewebsites.net/api/user/personal`,
+        `https://localhost:7167/api/user/personal`,
         { ...formData, dob: formData.dob || null },
         config
       );

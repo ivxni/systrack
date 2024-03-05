@@ -1,6 +1,6 @@
 @use "../../../../_base";
 
-.User {
+.Component {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,21 +25,9 @@
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
     cursor: pointer;
 
-    .actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .fa {
-        margin: 0 0 0 2rem;
-        padding: 0.5rem;
-        border-radius: 50%;
-        transition: ease-out 0.2s;
-
-        &:hover {
-          background-color: rgba($color: #ffffff, $alpha: 0.2);
-        }
-      }
+    .fa {
+      color: base.$dark-grey;
+      transition: ease 0.2s;
     }
 
     &:hover {
@@ -73,16 +61,15 @@
     .info__container {
       display: flex;
       flex-direction: column;
-      margin-inline: 0rem 10vw;
+      margin-inline: 0rem 15vw;
     }
 
     span {
-      width: 15rem;
       margin-top: 1rem;
     }
   }
 }
 
-.clicked {
+.clicked  {
   margin-bottom: 8rem;
 }

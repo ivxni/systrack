@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import styles from "./Computer.module.scss";
+import styles from "./MyComputer.module.scss";
 
 function MyComputer({ computer }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -12,10 +12,10 @@ function MyComputer({ computer }) {
 
   return (
     <div
-      className={`${styles.Computer} ${showDetails ? styles.clicked : ""}`}
+      className={`${styles.MyComputer} ${showDetails ? styles.clicked : ""}`}
     >
       <span className={styles.title} onClick={toggleDetails}>
-      Computer-ID {computer.computerId} / {computer.computerName} / {computer.user.email}
+        {computer.computerName}
         <FontAwesomeIcon className={styles.fa} icon={faBars} />
       </span>
       <div

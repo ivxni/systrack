@@ -18,7 +18,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
-  const apiBaseUrl = "https://systrack-its.azurewebsites.net";
+  const apiBaseUrl = "https://localhost:7167";
 
   const navigate = useNavigate();
 

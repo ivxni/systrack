@@ -9,6 +9,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 999!important;
   background-color: rgba($color: #000000, $alpha: 0.5);
 
   .Container {

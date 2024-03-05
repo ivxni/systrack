@@ -1,14 +1,15 @@
 import styles from "./Input.module.scss";
 
-function Input({ placeholder, type, onChange, name, value }) {
+function Input({ placeholder, type, onChange, name, value, disabled }) {
   return (
     <input
-      className={styles}
+      className={styles.Input}
       placeholder={placeholder}
       type={type}
       onChange={onChange}
       name={name}
       value={value}
+      disabled={disabled}
     />
   );
 }

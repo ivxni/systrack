@@ -20,6 +20,12 @@ function Nav({ email }) {
 
     navigate("/");
   };
+
+  const isAdmin = role === "Admin";
+  const isSpecialist = role === "Specialist";
+  const isStaff = role === "Staff";
+  const hasHigherPrivileges = isAdmin || isSpecialist || isStaff;
+
   return (
     <div className={styles.nav}>
       <div className={styles.items}>
@@ -41,7 +47,7 @@ function Nav({ email }) {
             </li>
             <li>
               <NavLink
-                to="/dashboard/computers"
+                to="/dashboard/mycomputers"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 My Computers
@@ -49,12 +55,53 @@ function Nav({ email }) {
             </li>
             <li>
               <NavLink
-                to="/dashboard/users"
+                to="/dashboard/myorders"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
-                Users
+                My Orders
               </NavLink>
             </li>
+            {hasHigherPrivileges && <div className={styles.Line}></div>}
+            {isAdmin || isStaff ? (
+              <li>
+                <NavLink
+                  to="/dashboard/users"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Users
+                </NavLink>
+              </li>
+            ) : null}
+            {isAdmin || isStaff ? (
+              <li>
+                <NavLink
+                  to="/dashboard/orders"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Orders
+                </NavLink>
+              </li>
+            ) : null}
+            {isAdmin || isSpecialist ? (
+              <li>
+                <NavLink
+                  to="/dashboard/computers"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Computers
+                </NavLink>
+              </li>
+            ) : null}
+            {/*{isAdmin || isSpecialist ? (
+              <li>
+                <NavLink
+                  to="/dashboard/components"
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                >
+                  Components
+                </NavLink>
+              </li>
+            ) : null}*/}
           </ul>
         </nav>
       </div>
