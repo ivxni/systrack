@@ -1,5 +1,6 @@
 {
-  "name": "scrumpoker",
+  "homepage": "https://witty-grass-0ea828d03.4.azurestaticapps.net",
+  "name": "systrack",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
