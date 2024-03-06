@@ -35,7 +35,7 @@ function Orders() {
       try {
         const token = localStorage.getItem("jwtToken");
         const response = await axios.get(
-          `https://localhost:7167/api/user/allorders`,
+          `https://systrack-its.azurewebsites.net/api/user/allorders`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
