@@ -13,12 +13,29 @@ function Computers() {
     setShowCreateForm(!showCreateForm);
   };
 
+  const deleteComputer = async (computerId) => {
+    try {
+      const token = localStorage.getItem("jwtToken");
+      await axios.delete(`https://systrack-its.azurewebsites.net/api/user/computers/${computerId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setComputers(computers.filter((computer) => computer.computerId !== computerId));
+      alert("Computer deleted.");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error");
+    }
+  };
+
   useEffect(() => {
     const fetchComputers = async () => {
       try {
         const token = localStorage.getItem("jwtToken");
         const response = await axios.get(
-          `https://systrack-its.azurewebsites.net/api/user/allcomputers`,
+          `https://localhost:7167/api/user/allcomputers`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -59,7 +76,7 @@ function Computers() {
         <div className={styles.section__container}>
           {computers.map((computer) => (
             <div key={computer.computerId} className={styles.info__container}>
-              <Computer computer={computer} />
+              <Computer computer={computer} onDelete={deleteComputer}/>
             </div>
           ))}
         </div>

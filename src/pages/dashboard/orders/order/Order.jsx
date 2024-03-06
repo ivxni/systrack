@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Order.module.scss";
 
-function Order({ order }) {
+function Order({ order, onDelete }) {
   const [showDetails, setShowDetails] = useState(false);
 
   const toggleDetails = () => {
@@ -19,11 +18,25 @@ function Order({ order }) {
     return types[purchaseType] || "Unbekannter Typ";
   }
 
+  const deleteOrder = () => {
+    const isConfirmed = window.confirm("Delete order?");
+    if (isConfirmed) {
+      onDelete(order.orderId);
+    }
+  };
+
   return (
     <div className={`${styles.Order} ${showDetails ? styles.clicked : ""}`}>
       <span className={styles.title} onClick={toggleDetails}>
         Order-ID {order.orderId} / {order.orderName} / {order.user.email}
-        <FontAwesomeIcon className={styles.fa} icon={faBars} />
+        <div className={styles.actions}>
+          <FontAwesomeIcon
+            className={styles.fa}
+            icon="xmark"
+            onClick={deleteOrder}
+          />
+          <FontAwesomeIcon className={styles.fa} icon="bars" />
+        </div>
       </span>
       <div
         className={`${styles.details__container} ${

@@ -13,24 +13,50 @@ function Orders() {
     setShowCreateForm(!showCreateForm);
   };
 
+  const deleteOrder = async (orderId) => {
+    try {
+      const token = localStorage.getItem("jwtToken");
+      await axios.delete(`https://systrack-its.azurewebsites.net/api/user/orders/${orderId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setOrders(orders.filter((order) => order.orderId !== orderId));
+      alert("Order deleted.");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error");
+    }
+  };
+
   useEffect(() => {
     const fetchOrders = async () => {
-  try {
-    const token = localStorage.getItem("jwtToken");
-    const response = await axios.get(`https://systrack-its.azurewebsites.net/api/user/allorders`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const ordersData = response.data.$values;
+      try {
+        const token = localStorage.getItem("jwtToken");
+        const response = await axios.get(
+          `https://localhost:7167/api/user/allorders`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        const ordersData = response.data.$values;
 
-    console.log("Order-IDs:", ordersData.map(order => order.orderId));
+        console.log(
+          "Order-IDs:",
+          ordersData.map((order) => order.orderId)
+        );
 
-    setOrders(ordersData);
-  } catch (error) {
-    console.error("Fehler beim Abrufen aller Bestellungen:", error.response || error);
-  }
-};
+        setOrders(ordersData);
+      } catch (error) {
+        console.error(
+          "Fehler beim Abrufen aller Bestellungen:",
+          error.response || error
+        );
+      }
+    };
 
     fetchOrders();
   }, []);
@@ -38,18 +64,19 @@ function Orders() {
   return (
     <div className={styles.Orders}>
       <h1>Orders</h1>
-      <Button label="Create New Order" variant="primary" onClick={toggleCreateForm}/>
+      <Button
+        label="Create New Order"
+        variant="primary"
+        onClick={toggleCreateForm}
+      />
       {showCreateForm && (
-        <Form
-          label="Create Order"
-          onClose={() => setShowCreateForm(false)}
-        />
+        <Form label="Create Order" onClose={() => setShowCreateForm(false)} />
       )}
       {orders.length > 0 ? (
         <div className={styles.section__container}>
           {orders.map((order) => (
             <div key={order.orderId} className={styles.info__container}>
-              <Order order={order} />
+              <Order order={order} onDelete={deleteOrder}/>
             </div>
           ))}
         </div>

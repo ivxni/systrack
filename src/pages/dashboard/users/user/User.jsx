@@ -2,10 +2,10 @@ import styles from "./User.module.scss";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Form from "../../../../components/form/Form";
 
-library.add(faBars, faPenToSquare);
+library.add(faBars, faPenToSquare, faXmark);
 
 function getRoleName(roleNumber) {
   const roleNames = {
